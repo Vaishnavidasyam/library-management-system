@@ -1,0 +1,370 @@
+/* ─────────────────────────────────────────
+   SettingsPage — Premium UI
+   ───────────────────────────────────────── */
+
+/* Page shell */
+.set-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 4px 0 40px;
+}
+
+/* ─────────────────────────────────────────
+   HERO
+   ───────────────────────────────────────── */
+.set-hero {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 32px 36px;
+  background: linear-gradient(130deg, #0f766e 0%, #0891b2 50%, #4f46e5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.set-hero::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.set-hero::before {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 35%;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.set-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.set-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 13px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.set-hero-title {
+  margin: 0 0 8px;
+  font-size: clamp(1.75rem, 2.4vw, 2.6rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.set-hero-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* Hero badge */
+.set-hero-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.28);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  color: #e5e7eb;
+  font-size: 0.8rem;
+}
+
+.set-hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #22c55e;
+}
+
+.set-hero-badge-text strong {
+  font-weight: 700;
+}
+
+/* ─────────────────────────────────────────
+   GRID
+   ───────────────────────────────────────── */
+.set-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+/* ─────────────────────────────────────────
+   CARD
+   ───────────────────────────────────────── */
+.set-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e8eaf0;
+  border-radius: 20px;
+  padding: 28px 28px 24px;
+  box-sizing: border-box;
+}
+
+.set-card-header {
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f2f7;
+}
+
+.set-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.set-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.set-ci--indigo {
+  background: #eef0ff;
+  color: #4f46e5;
+}
+
+.set-ci--teal {
+  background: #e0f7f4;
+  color: #0f9e8a;
+}
+
+.set-card-title {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.set-card-subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+/* List wrapper in second card */
+.set-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ─────────────────────────────────────────
+   SETTINGS ROW
+   ───────────────────────────────────────── */
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  margin-bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.04),
+    rgba(6, 182, 212, 0.03)
+  );
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  transition: all 0.25s ease;
+}
+
+.settings-row:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.08),
+    rgba(6, 182, 212, 0.05)
+  );
+}
+
+.settings-row-text span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.settings-row-text p {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* ─────────────────────────────────────────
+   PRIMARY BUTTON
+   ───────────────────────────────────────── */
+.primary-button {
+  height: 44px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  transition: all 0.25s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.25);
+}
+
+/* ─────────────────────────────────────────
+   TOGGLE SWITCH
+   ───────────────────────────────────────── */
+.settings-row input[type="checkbox"] {
+  appearance: none;
+  width: 54px;
+  height: 30px;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  background: #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+.settings-row input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.settings-row input[type="checkbox"]:checked {
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+}
+
+.settings-row input[type="checkbox"]:checked::before {
+  transform: translateX(22px);
+}
+
+/* ─────────────────────────────────────────
+   DARK MODE
+   ───────────────────────────────────────── */
+[data-theme="dark"] .set-hero {
+  background: linear-gradient(130deg, #065f46 0%, #0c4a6e 50%, #3730a3 100%);
+}
+
+[data-theme="dark"] .set-card {
+  background: #141a2e;
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .set-card-header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .set-card-title {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .set-card-subtitle {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .settings-row {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.08),
+    rgba(6, 182, 212, 0.05)
+  );
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .settings-row-text span {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .settings-row-text p {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .settings-row input[type="checkbox"] {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .set-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 22px;
+    gap: 18px;
+  }
+
+  .set-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .set-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .settings-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .primary-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .set-hero-title {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,563 @@
+/* ─────────────────────────────────────────
+   CSS RESET / BASE
+   ───────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Text",
+    "Segoe UI",
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove default margins */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─────────────────────────────────────────
+   THEME TOKENS (LIGHT / DARK)
+   Implemented via data-theme attribute on <html> or <body>.
+   Example: <html data-theme="light"> or "dark".
+   ───────────────────────────────────────── */
+
+:root {
+  /* Colors */
+  --bg-body: #f3f4f6;
+  --bg-elevated: #ffffff;
+  --bg-soft: #f9fafb;
+  --bg-input: rgba(248, 250, 252, 0.95);
+
+  --border-subtle: #e5e7eb;
+  --border-strong: #cbd5f5;
+
+  --text-main: #0f172a;
+  --text-muted: #6b7280;
+  --text-soft: #9ca3af;
+
+  --primary: #6366f1;
+  --primary-soft: #eef2ff;
+  --primary-strong: #4f46e5;
+
+  --accent: #06b6d4;
+  --danger: #ef4444;
+  --danger-soft: #fee2e2;
+  --success: #16a34a;
+  --success-soft: #dcfce7;
+
+  --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
+
+  /* Layout */
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+
+  --sidebar-width: 240px;
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --bg-body: #020617;
+  --bg-elevated: #0b1220;
+  --bg-soft: #020617;
+  --bg-input: rgba(15, 23, 42, 0.95);
+
+  --border-subtle: rgba(148, 163, 184, 0.4);
+  --border-strong: rgba(148, 163, 184, 0.5);
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --text-soft: #6b7280;
+
+  --primary-soft: rgba(79, 70, 229, 0.1);
+
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.9);
+}
+
+/* ─────────────────────────────────────────
+   BODY / APP SHELL
+   ───────────────────────────────────────── */
+
+body {
+  background:
+    radial-gradient(circle at top left, #e0f2fe 0, transparent 55%),
+    radial-gradient(circle at bottom right, #ede9fe 0, transparent 55%),
+    var(--bg-body);
+  color: var(--text-main);
+}
+
+/* Use this as your main app container */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  background: transparent;
+}
+
+/* Sidebar + main layout */
+.app-sidebar {
+  width: var(--sidebar-width);
+  min-height: 100vh;
+  background: linear-gradient(180deg, #020617 0%, #020617 40%, #020617 100%);
+  color: #e5e7eb;
+  padding: 20px 18px;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+}
+
+.app-main {
+  flex: 1;
+  min-height: 100vh;
+  padding: 20px 24px 32px;
+  box-sizing: border-box;
+}
+
+/* Optional top bar */
+.app-topbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+/* Page grid wrapper used in many pages */
+.page-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ─────────────────────────────────────────
+   TYPOGRAPHY HELPERS
+   ───────────────────────────────────────── */
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+.page-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ─────────────────────────────────────────
+   SECTION CARD (matches SectionCard component)
+   ───────────────────────────────────────── */
+
+.section-card {
+  width: 100%;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  padding: 22px 22px 20px;
+  box-sizing: border-box;
+}
+
+.section-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.section-card-header h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.section-card-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ─────────────────────────────────────────
+   BUTTONS
+   ───────────────────────────────────────── */
+
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+/* Primary button */
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 16px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.35);
+  transition: all 0.18s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.45);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(99, 102, 241, 0.35);
+}
+
+/* Ghost / subtle button */
+.ghost-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 14px;
+  height: 34px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  transition: all 0.18s ease;
+}
+
+.ghost-button:hover {
+  background: rgba(148, 163, 184, 0.18);
+}
+
+/* Icon-only button */
+.icon-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  background: rgba(248, 250, 252, 0.8);
+  transition: all 0.18s ease;
+}
+
+.icon-button:hover {
+  background: #ffffff;
+  color: var(--primary);
+}
+
+/* ─────────────────────────────────────────
+   FORMS / INPUTS
+   ───────────────────────────────────────── */
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+.input,
+textarea,
+select,
+.form-grid input,
+.form-grid textarea,
+.form-grid select {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: var(--bg-input);
+  padding: 9px 11px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-soft);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.35);
+  background: #ffffff;
+}
+
+/* Form grid helper */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 18px;
+}
+
+/* Admin-form variant from earlier code */
+.admin-form {
+  margin-top: 12px;
+}
+
+/* ─────────────────────────────────────────
+   TABLE / DATA TABLE BASE
+   ───────────────────────────────────────── */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead {
+  background: linear-gradient(
+    135deg,
+    rgba(148, 163, 184, 0.08),
+    rgba(148, 163, 184, 0.02)
+  );
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 14px;
+  font-size: 0.88rem;
+}
+
+.data-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.data-table tbody tr:nth-child(even) {
+  background: rgba(248, 250, 252, 0.75);
+}
+
+.data-table tbody tr:hover {
+  background: rgba(239, 246, 255, 0.95);
+}
+
+/* Allow horizontal scroll on small screens */
+.table-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* ─────────────────────────────────────────
+   GENERIC CARDS / GLASS
+   ───────────────────────────────────────── */
+
+.glass-subcard {
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Dark mode glass tweak */
+[data-theme="dark"] .glass-subcard {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.45);
+}
+
+/* ─────────────────────────────────────────
+   LAYOUT HELPERS
+   ───────────────────────────────────────── */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.dual-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 22px;
+}
+
+.list-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list-stack.compact {
+  gap: 8px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Generic search shell (used in header actions) */
+.search-shell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 5px;
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+.search-shell input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+/* Book grid used on browse page */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* Placeholder cover */
+.book-cover-placeholder {
+  width: 52px;
+  height: 70px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #4f46e5, #06b6d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f9fafb;
+  font-weight: 800;
+}
+
+/* ─────────────────────────────────────────
+   TOAST & FEEDBACK (OPTIONAL BASE)
+   ───────────────────────────────────────── */
+
+.toast-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+}
+
+.toast {
+  min-width: 220px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: #111827;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+}
+
+.toast--success {
+  border-color: var(--success);
+}
+
+.toast--error {
+  border-color: var(--danger);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS
+   ───────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dual-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    bottom: 0;
+    z-index: 40;
+    transition: left 0.2s ease;
+  }
+
+  .app-sidebar--open {
+    left: 0;
+  }
+
+  .app-main {
+    padding: 16px 16px 28px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-card {
+    padding: 18px 16px 16px;
+  }
+}

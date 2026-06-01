@@ -1,0 +1,209 @@
+/* ─────────────────────────────────────────
+   ProfilePage — Premium UI
+   ───────────────────────────────────────── */
+
+.prof-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 4px 0 40px;
+}
+
+/* ─────────────────────────────────────────
+   TOP HERO
+   ───────────────────────────────────────── */
+.prof-hero {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 22px 24px;
+  background: linear-gradient(130deg, #0f766e 0%, #0891b2 50%, #4f46e5 100%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+  position: relative;
+}
+.prof-hero::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.prof-hero::before {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 40%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.prof-avatar {
+  position: relative;
+  z-index: 1;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.3);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prof-avatar span {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #f9fafb;
+}
+
+.prof-hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+.prof-hero-text h1 {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.prof-hero-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+/* ─────────────────────────────────────────
+   FORM GRID
+   ───────────────────────────────────────── */
+.prof-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 22px;
+  margin-top: 10px;
+}
+
+/* Field */
+.prof-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.prof-field--full {
+  grid-column: 1 / -1;
+}
+
+.prof-field label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.prof-field label svg {
+  font-size: 0.95rem;
+  color: #6366f1;
+}
+
+/* Inputs */
+.prof-field input,
+.prof-field textarea {
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(248, 250, 252, 0.85);
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.2s ease;
+  resize: vertical;
+}
+
+.prof-field input::placeholder,
+.prof-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.prof-field input:focus,
+.prof-field textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.35);
+  background: #ffffff;
+}
+
+/* Actions row */
+.prof-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+/* Save button */
+.prof-save-btn {
+  height: 42px;
+  padding: 0 20px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  transition: all 0.2s ease;
+}
+
+.prof-save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+}
+
+/* ─────────────────────────────────────────
+   DARK MODE
+   ───────────────────────────────────────── */
+[data-theme="dark"] .prof-hero {
+  background: linear-gradient(130deg, #065f46 0%, #0c4a6e 50%, #3730a3 100%);
+}
+
+[data-theme="dark"] .prof-field input,
+[data-theme="dark"] .prof-field textarea {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.5);
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .prof-field input::placeholder,
+[data-theme="dark"] .prof-field textarea::placeholder {
+  color: #6b7280;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .prof-hero {
+    padding: 18px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .prof-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

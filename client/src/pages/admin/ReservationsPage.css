@@ -1,0 +1,455 @@
+/* ─────────────────────────────────────────
+   ReservationsPage — Premium UI
+   ───────────────────────────────────────── */
+
+/* ── Page shell ── */
+.res-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 4px 0 40px;
+}
+
+/* ─────────────────────────────────────────
+   HERO
+   ───────────────────────────────────────── */
+.res-hero {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 32px 36px;
+  background: linear-gradient(130deg, #0f766e 0%, #0891b2 50%, #4f46e5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.res-hero::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.res-hero::before {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 30%;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.res-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.res-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 13px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.res-hero-title {
+  margin: 0 0 8px;
+  font-size: clamp(1.75rem, 2.4vw, 2.6rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.res-hero-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* Hero stat cluster */
+.res-hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.res-hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+.res-hero-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.res-hero-stat-num {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.res-hero-stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.res-hero-stat--alert .res-hero-stat-num {
+  color: #fed7d7;
+}
+
+/* ─────────────────────────────────────────
+   CARD
+   ───────────────────────────────────────── */
+.res-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e8eaf0;
+  border-radius: 20px;
+  padding: 32px 32px 28px;
+  box-sizing: border-box;
+}
+
+.res-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f2f7;
+}
+
+.res-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.res-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.res-ci--indigo {
+  background: #eef0ff;
+  color: #4f46e5;
+}
+
+.res-card-title {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+.res-card-subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.res-count-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ─────────────────────────────────────────
+   TABLE — SCOPED OVERRIDES
+   ───────────────────────────────────────── */
+.res-card .table-shell {
+  border-radius: 14px;
+  border: 1px solid #f0f2f7;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+.res-card table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.res-card thead {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.08),
+    rgba(6, 182, 212, 0.04)
+  );
+}
+
+.res-card thead th {
+  padding: 16px 18px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #64748b;
+}
+
+.res-card tbody td {
+  padding: 14px 18px;
+  font-size: 0.9rem;
+  color: #1e293b;
+  vertical-align: middle;
+  border-bottom: 1px solid #f0f2f7;
+}
+
+.res-card tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.res-card tbody tr:hover td {
+  background: #fafbff;
+}
+
+.res-card tbody td:first-child {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.res-card tbody td:nth-child(2) {
+  color: #6366f1;
+  font-weight: 500;
+}
+
+.res-card tbody td:nth-child(4) {
+  color: #64748b;
+}
+
+/* ─────────────────────────────────────────
+   STATUS BADGES
+   ───────────────────────────────────────── */
+.res-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.res-status--pending {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+}
+
+.res-status--approved {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.res-status--rejected {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+
+/* ─────────────────────────────────────────
+   ROW ACTIONS
+   ───────────────────────────────────────── */
+.res-row-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.res-icon-button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 11px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.res-icon-button:hover {
+  transform: translateY(-1px);
+  background: rgba(16, 185, 129, 0.2);
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.18);
+}
+
+.res-icon-button--danger {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+
+.res-icon-button--danger:hover {
+  background: rgba(239, 68, 68, 0.2);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.18);
+}
+
+/* ─────────────────────────────────────────
+   DARK MODE
+   ───────────────────────────────────────── */
+[data-theme="dark"] .res-hero {
+  background: linear-gradient(130deg, #312e81 0%, #0f766e 40%, #166534 100%);
+}
+
+[data-theme="dark"] .res-card {
+  background: #141a2e;
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .res-card-header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .res-card-title {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .res-card-subtitle {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .res-count-badge {
+  background: rgba(255, 255, 255, 0.07);
+  color: #94a3b8;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .res-card .table-shell {
+  border-color: rgba(255, 255, 255, 0.06);
+  background: rgba(15, 23, 42, 0.9);
+}
+
+[data-theme="dark"] .res-card thead th {
+  background: rgba(15, 23, 42, 0.9);
+  color: #64748b;
+}
+
+[data-theme="dark"] .res-card tbody td {
+  color: #cbd5e1;
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .res-card tbody td:first-child {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .res-card tbody td:nth-child(2) {
+  color: #818cf8;
+}
+
+[data-theme="dark"] .res-card tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .res-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 22px;
+    gap: 18px;
+  }
+
+  .res-hero-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .res-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .res-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .res-card table {
+    min-width: 640px;
+  }
+}
+
+@media (max-width: 480px) {
+  .res-hero-title {
+    font-size: 1.6rem;
+  }
+
+  .res-card-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+  }
+
+  .res-hero-stat-num {
+    font-size: 1.4rem;
+  }
+}

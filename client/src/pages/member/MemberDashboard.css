@@ -1,0 +1,487 @@
+/* ─────────────────────────────────────────
+   MemberDashboard — Premium UI
+   ───────────────────────────────────────── */
+
+/* Page shell */
+.mem-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 4px 0 40px;
+}
+
+/* ─────────────────────────────────────────
+   HERO
+   ───────────────────────────────────────── */
+.mem-hero {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 32px 36px;
+  background: linear-gradient(130deg, #0f766e 0%, #0891b2 50%, #4f46e5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mem-hero::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.mem-hero::before {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 35%;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.mem-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.mem-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 13px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.mem-hero-title {
+  margin: 0 0 8px;
+  font-size: clamp(1.8rem, 2.5vw, 2.7rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.mem-hero-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* Hero stats */
+.mem-hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.mem-hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 22px;
+  text-align: center;
+}
+
+.mem-hero-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.mem-hero-stat-num {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.mem-hero-stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.mem-hero-stat--alert .mem-hero-stat-num {
+  color: #fecaca;
+}
+
+/* ─────────────────────────────────────────
+   STATS GRID
+   ───────────────────────────────────────── */
+.mem-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.mem-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+}
+
+.mem-stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.mem-si--indigo {
+  background: #eef0ff;
+  color: #4f46e5;
+}
+
+.mem-si--amber {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.mem-si--purple {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+.mem-si--teal {
+  background: #e0f7f4;
+  color: #0f9e8a;
+}
+
+.mem-stat-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.mem-stat-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.mem-stat-helper {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* ─────────────────────────────────────────
+   BOTTOM GRID
+   ───────────────────────────────────────── */
+.mem-bottom-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.mem-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e8eaf0;
+  border-radius: 20px;
+  padding: 28px 28px 24px;
+  box-sizing: border-box;
+}
+
+.mem-card-header {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f2f7;
+}
+
+.mem-card-title {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.mem-card-subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+/* Reading metrics */
+.mem-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.mem-metric-card {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.05),
+    rgba(6, 182, 212, 0.04)
+  );
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  transition: all 0.25s ease;
+}
+
+.mem-metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.mem-metric-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.mem-metric-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* Recommendations list */
+.mem-list-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mem-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(248, 250, 252, 0.85);
+  border: 1px solid #e2e8f0;
+  transition: all 0.25s ease;
+}
+
+.mem-list-item:hover {
+  transform: translateY(-2px);
+  background: #f9fafb;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+}
+
+.mem-list-item strong {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.mem-list-item p {
+  margin: 3px 0 0;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Pill */
+.mem-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.mem-pill svg {
+  font-size: 0.9rem;
+}
+
+/* Empty state */
+.mem-empty-state {
+  padding: 36px 20px;
+  text-align: center;
+  border-radius: 18px;
+  background: rgba(99, 102, 241, 0.03);
+  border: 1px dashed rgba(99, 102, 241, 0.15);
+}
+
+.mem-empty-state h4 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.mem-empty-state p {
+  color: #64748b;
+}
+
+/* ─────────────────────────────────────────
+   DARK MODE
+   ───────────────────────────────────────── */
+[data-theme="dark"] .mem-hero {
+  background: linear-gradient(130deg, #065f46 0%, #0c4a6e 50%, #3730a3 100%);
+}
+
+[data-theme="dark"] .mem-stat-card {
+  background: #141a2e;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .mem-stat-value {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .mem-card {
+  background: #141a2e;
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .mem-card-header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .mem-card-title {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .mem-card-subtitle {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .mem-metric-card {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.08),
+    rgba(6, 182, 212, 0.05)
+  );
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .mem-metric-label {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .mem-metric-value {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .mem-list-item {
+  background: rgba(15, 23, 42, 0.82);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .mem-list-item strong {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .mem-list-item p {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .mem-empty-state {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .mem-empty-state h4 {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .mem-empty-state p {
+  color: #94a3b8;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .mem-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mem-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .mem-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 22px;
+    gap: 18px;
+  }
+
+  .mem-hero-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .mem-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mem-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mem-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .mem-hero-title {
+    font-size: 1.6rem;
+  }
+
+  .mem-hero-stat-num {
+    font-size: 1.3rem;
+  }
+}

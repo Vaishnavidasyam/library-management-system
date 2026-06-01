@@ -1,0 +1,202 @@
+/* =====================================
+   HEADER BAR
+===================================== */
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+.header-left h1 {
+  margin: 0;
+
+  font-size: 2.4rem;
+  font-weight: 800;
+
+  letter-spacing: -0.03em;
+
+  color: var(--text-primary);
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.18em;
+
+  color: #06b6d4;
+}
+.eyebrow {
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.15em;
+
+  color: #06b6d4;
+
+  margin-bottom: 6px;
+}
+
+.header-left h1 {
+  font-size: 2.3rem;
+
+  font-weight: 800;
+
+  margin: 0;
+}
+
+/* =====================================
+   ACTIONS
+===================================== */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+/* =====================================
+   SEARCH
+===================================== */
+
+.search-shell {
+  width: 360px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 18px;
+
+  border-radius: 16px;
+
+  transition: 0.3s;
+}
+
+.search-shell input {
+  flex: 1;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-size: 0.95rem;
+}
+
+.search-shell svg {
+  font-size: 1rem;
+}
+
+/* =====================================
+   ICON BUTTONS
+===================================== */
+
+.header-icon-btn,
+.theme-toggle {
+  width: 52px;
+  height: 52px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s;
+}
+
+.header-icon-btn:hover,
+.theme-toggle:hover {
+  transform: translateY(-2px);
+}
+
+/* =====================================
+   LIGHT MODE
+===================================== */
+
+body[data-theme="light"] .search-shell {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+body[data-theme="light"] .header-icon-btn,
+body[data-theme="light"] .theme-toggle {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* =====================================
+   DARK MODE
+===================================== */
+
+body[data-theme="dark"] .search-shell {
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: white;
+}
+
+body[data-theme="dark"] .header-icon-btn,
+body[data-theme="dark"] .theme-toggle {
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: white;
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 768px) {
+  .header-bar {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 16px;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .search-shell {
+    width: 100%;
+  }
+
+  .header-left h1 {
+    font-size: 1.8rem;
+  }
+}
