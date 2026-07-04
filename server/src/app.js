@@ -23,13 +23,14 @@ const allowedOrigins = (process.env.CLIENT_URL || "http://localhost:5173")
   .map((url) => url.trim());
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+   // origin: (origin, callback) => {
+   //   if (!origin || allowedOrigins.includes(origin)) {
+   //     callback(null, true);
+    //  } else {
+    //    callback(new Error("Not allowed by CORS"));
+   //   }
+  //  },
+    origin: true, 
     credentials: true,
   }),
 );
