@@ -12,7 +12,7 @@ import SectionCard from "../../components/dashboard/SectionCard";
 const AdminDashboard = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
   const { showToast } = useToast();
 
   const loadDashboard = async () => {
@@ -196,7 +196,7 @@ const AdminDashboard = () => {
                 <div className="recent-book-image">
                   {book.coverImage ? (
                     <img
-                      src={`http://localhost:5000${book.coverImage}`}
+                      src={`${API_BASE}${book.coverImage}`}
                       alt={book.title}
                       className="recent-book-img"
                     />
